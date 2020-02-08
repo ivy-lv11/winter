@@ -1,7 +1,6 @@
 <<<<<<< HEAD
 # winter
 just test
-shift ctrl N to open a new ternimal
 adsfaadsfa
 =======
 notes on Operating system: three easy pieces
