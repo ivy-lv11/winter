@@ -83,7 +83,7 @@ read data from standard input and send a copy to both standard output and to a f
 
 ### grep命令  
 grep ad name  
-
+返回符合的行，到屏幕上  
 
 
 ## condition execution  
@@ -121,4 +121,45 @@ colrm 24 30 < students | less
 colrm 5 < name  
 TIPS: 标准输入，标准输出  
 
+## cmp命令  
+cmp file1 file2 由于该命令是按字节比较，所以可以比较文本、图像等等  
 
+## comm命令  
+input files must be sorted, which in many cases is not possible.  
+
+### diff命令  
+针对unsorted/large files  
+diff [-bBiqswy] [-c|clilnes|-u|-Ulines] file1 file2  
+the goal of the diff is to display the instructions you would need to follow to change the firstfile into thesecond file.  
+the output of diff uses three different 1 character instructions :  
+c(change),d(delete),a(append)  
+例子3c3: change line 3 of the first file to line 3 of the second file.  
+lines from the first file are marked by a < , lilnes from the second file are marked by a >.  
+例子1a2
+ > will  
+this tells you hhow to change the first file into the second.  
+append a single line to the first.append line 2 after line1  
+ > 后面是加上的内容  
+例子4d3
+ < mark  
+删去第四行mark的内容，<后面是删除的内容  
+
+使用-i 忽略大小写  
+使用-w,-b忽略whitespace  
+-w 忽略所有whitespace, -b 忽略相同个数的  
+-q tell if they are different
+-s tell if they are identical  
+-c/-u 更用户友好  
+
+### cut 命令  
+cut -c 5,6 name1  
+cut -c 2,4-6 name1  
+cut -c 5,6 name1 | sort  
+cut -c 1,2 name1 | sort | grep as | wc -l  
+选择区域  
+cut -f 2 -d ':' name1  
+
+### paster命令  
+paste name1 name2  
+paste name1 name2 -d ',' 修改分隔符  
+ 
