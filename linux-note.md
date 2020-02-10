@@ -90,4 +90,35 @@ grep ad name
 上一个命令成功执行了，才会执行下一个命令 command1 && command2  
 只有上一个命令没有成功执行，才会去执行下一个命令 command1 || command2  
 grep se name && sort name > t  
- 
+
+## filter  
+### cat命令  
+cat old new | grep Har | sort | less  
+cat/grep/sort都是filter  
+利用重定向cat < name > names 从name读入,输出到names中  
+注意不要把输入重定向到输出  
+  
+### split命令  
+split -d -a 3 data  
+
+### tac命令（逆序输出行）  
+tac [file...]  
+tac name  
+
+### rev命令（每一行逆序）  
+rev [file...]  
+rev graph | tac  
+
+### head, tail命令  
+head [OPTION] ... [FILE] ...   
+例子cat name1 name2 | head -n 10| sort  
+sort name1 | head -n 200 | less  
+
+### colrm 命令  
+colrm [start col [endcol]]  
+colrm 24 30 < students | less  
+不指定endcol，从开始start col全部删除  
+colrm 5 < name  
+TIPS: 标准输入，标准输出  
+
+
