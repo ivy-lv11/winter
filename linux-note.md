@@ -159,7 +159,34 @@ cut -c 1,2 name1 | sort | grep as | wc -l
 选择区域  
 cut -f 2 -d ':' name1  
 
-### paster命令  
+### paste命令  
 paste name1 name2  
 paste name1 name2 -d ',' 修改分隔符  
- 
+
+### 统计文件夹下有多少个文件  
+ls . | wc -l 
+ls ch4.md -l  
+
+### fold命令  
+每行最多多少个字符 -w num  
+fold -w 10 name1  
+
+### nl命令  
+nl file1 > file2  
+nl file1 file2 | lpr  
+设置起始的行号-v 100  
+设置间隔-i 5  
+例子nl file1 -i 5 -v 20 > file2  
+
+ > grep命令  
+从标准输入或者文件中读入，根据特征提取，输出到标准输出  
+grep [-cilLnrsvwx] pattern [file...]  
+grep < name1 skdf | cut -c 4-6  > age  
+-c 计数  
+-n 所在行 grep -n lv name1  
+搜索多个文件的时候使用-l来显示所在的文件 grep lv name1 name2 -l  
+-L does the opposite  
+grep lv name1 name2 ch4.md -l | wc -l  
+grep -ns pattern $(find .)  
+
+
