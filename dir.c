@@ -46,11 +46,12 @@ int main(){
 					char status[4];
 					int num;
 					int parent_id;
-					fscanf(fp,"%d %s %s %d %s\n",&num,name,status,&parent_id,dump);
-					int i;
-					for (i=0;i<strlen(name);i++)
-						name[i] = name[i+1];
-					name[strlen(name)-1] = '\0';
+					fscanf(fp,"%d (%[^)]) %s %d %s\n",&num,name,status,&parent_id,dump);
+					printf("%s\n",name);
+		//			int i;
+		//			for (i=0;i<strlen(name);i++)
+		//				name[i] = name[i+1];
+		//			name[strlen(name)-1] = '\0';
 					printf("%s(%d):status %s:parent %d\n",name,num,status,parent_id);
 					fclose(fp);
 				}
