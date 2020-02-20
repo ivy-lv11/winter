@@ -189,4 +189,5 @@ grep < name1 skdf | cut -c 4-6  > age
 grep lv name1 name2 ch4.md -l | wc -l  
 grep -ns pattern $(find .)  
 
-
+## 多thread编译时
+gcc -o main main.c -pthread;
