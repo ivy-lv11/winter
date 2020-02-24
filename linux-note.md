@@ -191,3 +191,14 @@ grep -ns pattern $(find .)
 
 ## 多thread编译时
 gcc -o main main.c -pthread;
+
+## 正则表达式  
+- matches any character except newline  
+^ matches the beginnning of a line  
+$ matches the end of a line  
+[list] matches any character in the list  
+[ ^list ] matches any character not in the list  
+* matches 0/more times  
++matces 1/more times  
+? matches 0/1 times
+配合grep使用  

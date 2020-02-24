@@ -1,5 +1,5 @@
-#include <threads.h>
-
+#include "threads.h"
+#include <stdio.h>
 int x = 0;
 
 void f() {
@@ -8,7 +8,7 @@ void f() {
 }
 
 int main() {
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 3; i++) {
     create(f);
   }
   join(NULL);

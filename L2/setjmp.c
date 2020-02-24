@@ -10,7 +10,7 @@ int f(int n)
 	f(n+1);
 }
 
-int main(){
+int ain(){
 	int r = setjmp(env);
 	if (r==0)
 	{

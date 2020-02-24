@@ -1,8 +1,8 @@
-#include <threads.h>
+#include "threads.h"
 #include <unistd.h>
 #include <sys/syscall.h>
-
-__thread char *base, *now; // thread-local variables
+#include <stdio.h>
+__thread char *base, *now; // thread-local variables 线程独享
 
 void set_base(char *ptr) { base = ptr; } 
 void set_now(char *ptr)  { now = ptr; }
@@ -11,12 +11,12 @@ void *get_now() { return &now; }
 
 void stackoverflow(int n) {
   putchar('\0'); // some random delays
-  char x;
-  if (n == 0) set_base(&x);
+  char x;//栈里
+  if (n == 0) set_base(&x);//大致确定栈起始位置
   set_now(&x);
   if (n % 1024 == 0) {
     printf("[%ld] Stack size @ n = %d: %lx +%ld KB\n",
-      syscall(SYS_gettid), n, (intptr_t)base, (base - now) / 1024);
+      syscall(SYS_gettid), n, (intptr_t)base, (base - now) / 1024);//栈向低地址长
   }
   stackoverflow(n + 1);
 }
