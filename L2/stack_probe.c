@@ -2,7 +2,7 @@
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <stdio.h>
-__thread char *base, *now; // thread-local variables 线程独享
+__thread char *base, *now; // thread-local variables 线程独享__thread char
 
 void set_base(char *ptr) { base = ptr; } 
 void set_now(char *ptr)  { now = ptr; }

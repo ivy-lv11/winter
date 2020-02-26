@@ -201,4 +201,9 @@ $ matches the end of a line
 * matches 0/more times  
 +matces 1/more times  
 ? matches 0/1 times
-配合grep使用  
+配合grep使用 
+
+
+## undefined reference to `sqrt`  
+编译时加上-lm  
+gcc -o prime -lm   
