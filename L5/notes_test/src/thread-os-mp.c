@@ -54,10 +54,10 @@ lock_t biglock;
 
 void func(void *arg) {
   while (1) {
-//    lock(&biglock);
+    lock(&biglock);
     printf("Thread-%s on CPU #%d acquired the lock\n", arg, _cpu());
-  //  unlock(&biglock);
-    for (int volatile i = 0; i < 100000; i++) ;
+    unlock(&biglock);
+//    for (int volatile i = 0; i < 100000; i++) ;
   }
 }
 
