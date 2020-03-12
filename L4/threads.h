@@ -59,6 +59,18 @@ intptr_t atomic_xchg(volatile intptr_t *addr,
   return result;
 }
 
+/*char  atomic_cas(intptr_t *ptr,int old,int newval)
+{
+	unsigned char ret;
+	__asm__ __volatile__("lock\n"
+				 "cmpxchgl %2 %1\n"
+				 "sete %0\n"
+				 :"=q"(ret),"=m"(*ptr)
+				 :"r"(newval),"m"(*ptr),"a"(old)
+				 :"memory");
+	return ret;
+
+}*/
 intptr_t locked = 0;
 
 static inline void lock() {
@@ -73,6 +85,9 @@ static inline void lock() {
 static inline void unlock() {
   atomic_xchg(&locked, 0);
 }
+
+//start
+//end
 
 #include <semaphore.h>
 

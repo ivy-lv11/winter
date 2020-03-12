@@ -7,18 +7,22 @@ int y = 0;
 
 void a()
 {
-	x = 1;
-	printf("y %d\n",y);
+//	x = 1;
+	printf("a thread\n");
 }
 
 void b()
 {
-	y = 1;
-	printf("x %d\n",x);
+//	y = 1;
+	printf("b thread\n");
 }
 
 int main()
 {
+	printf("start\n");
 	create(a);
 	create(b);
+	join(b);
+	join(a);
+	printf("end\n");
 }
